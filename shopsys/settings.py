@@ -76,8 +76,16 @@ WSGI_APPLICATION = 'shopsys.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #  'ENGINE': 'mysql.connector.django', # mysqlclient上这样写的，不需要
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'shopsys',       # 数据库名
+        'USER': 'shopsys',       # 数据库账户名
+        'PASSWORD': '12345678',  # 数据库密码，为安全起见，应从系统环境变量读取
+                                 # 例如os.environ['SHOPSYS_DB_PASS']
+        'HOST': '127.0.0.1',     # 数据库服务器IP
+        'PORT': '3306',          # 数据库服务端口
+        'TEST': {}               # 测试数据库配置
+
     }
 }
 
@@ -87,14 +95,20 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+DATE_FORMAT = 'Y-m-d'
 
-USE_I18N = True
+TIME_ZONE = 'Asia/Shanghai'
 
-USE_L10N = True
+# 是否开启国际化支持，不开启时可以不加载翻译模块优化性能
+USE_I18N = False
+
+# 本地化格式支持，为True使用系统locale设置显示数字、时间等格式
+USE_L10N = False
 
 USE_TZ = True
 
+# 是否设置Etag, 设置etag可以降低网络资源开销，但会增加服务器性能开销
+USE_ETAGS = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
