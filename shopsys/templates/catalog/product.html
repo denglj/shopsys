@@ -1,0 +1,30 @@
+{% extends "catalog.html" %}
+{% block content %}
+<div class="product_image" >
+  <img src="{{ MEDIA_URL }}images/products/main/{{ p.image }}" alt="{{ p.name }}" />
+</div>
+  <h1>{{ p.name }}</h1>
+  品牌: <em>{{ p.brand }}</em>
+  <br /><br />
+  SKU: {{ p.sku }}
+  <br />
+  In categor{{ categories.count|pluralize:"y,ies" }}:
+  {% for c in categories %}
+  <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+  {% if not forloop.last %}, {% endif %}
+  {% endfor %}
+  <br /><br />
+  {% if p.sale_price %}
+  原价: <del>$ {{ p.old_price }}</del>
+  <br />
+  活动价: $ {{ p.price }}
+  {% else %}
+  价格: $ {{ p.price }}
+  {% endif %}
+  <br /><br />
+  [添加到购物车]
+  <br /><br />
+  <div class="cb"><br /><br /></div>
+  <h3>产品描述</h3>
+  {{ p.description }}
+{% endblock %}

@@ -119,7 +119,7 @@ USE_ETAGS = False
 
 STATIC_URL = '/static/'
 #  STATICFILES_DIRS = (
-#      SETTINGS_DIR + '/static/',
+    #  SETTINGS_DIR + '/static/',
 #  )
 
 # 站点设置

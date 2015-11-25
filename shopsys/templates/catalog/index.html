@@ -1,0 +1,8 @@
+{% load staticfiles %}
+hello catalog
+{% url 'catalog_home' %}
+<p>{{ site_name }}</p>
+<p>{{ meta_description }}</p>
+<a href="{% static "css/a.css" %}">css1</a>
+<a href="{% static "a.css" %}">css2</a>
+<p>{{ MEDIA_URL }}</p>
