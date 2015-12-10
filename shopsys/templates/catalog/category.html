@@ -5,12 +5,13 @@
 <br /><br />
 {% for p in products %}
 <div class="product_thumbnail">
-  <a href="{{ p.get_absolute_url }}">
-    <img src="{{ MEDIA_URL }}images/products/thumbnails/{{ p.image }}" 􀀁
-         alt="{{ p.name }}" class="bn" />
-    <br />
-    {{ p.name }}
-  </a>
+    <a href="{{ p.get_absolute_url }}">
+        <img src="{{ MEDIA_URL }}{{ p.image }}" 􀀁
+             alt="{{ p.name }}" class="bn"
+             width="140" height="140"/>
+        <br />
+        {{ p.name }}
+    </a>
 </div>
 {% endfor %}
 {% endblock %}

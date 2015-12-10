@@ -3,7 +3,7 @@ from .models import Category, Product
 
 
 def index(request, template_name):
-    page_title = '产品分类目录-小白购'
+    page_title = '产品分类目录'
     return render(request, template_name, locals())
 
 

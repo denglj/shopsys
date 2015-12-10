@@ -64,6 +64,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'shopsys.utils.context_processors.shopsys',
@@ -116,11 +117,18 @@ USE_ETAGS = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+# 生产环境静态资源的配置
+# https://docs.djangoproject.com/en/1.9/howto/static-files/deployment/
 
+# 在给定的路径中寻找静态资源
+STATICFILES_DIRS = (
+    os.path.join(SETTINGS_DIR, 'static'),
+)
 STATIC_URL = '/static/'
-#  STATICFILES_DIRS = (
-#      SETTINGS_DIR + '/static/',
-#  )
+
+# 用户上传文件位置
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # 站点设置
 SITE_NAME = '小白购'
