@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block body %}
+<div id="main">
+  <a href="#content" class="skip_link">跳转到主页</a>
+  <div id="banner">
+    <div class="bannerIEPadder">
+      <div class="cart_box">
+        [购物车]
+      </div>
+      小白购
+    </div>
+  </div>
+  <div id="navigation">
+    <div class="navIEPadder">
+      [导航条]
+    </div>
+  </div>
+  <div id="middle">
+    <div id="sidebar">
+      <div class="sidebarIEPadder">
+        [搜索框]
+        <br />
+        {% include "tags/category_list.html" %}
+      </div>
+    </div>
+    <div id="content">
+      <a name=”content”></a>
+      <div class="contentIEPadder">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="footerIEPadder">
+      [页脚]
+    </div>
+  </div>
+</div>
+{% endblock %}

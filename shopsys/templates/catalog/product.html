@@ -1,0 +1,31 @@
+{% extends "catalog.html" %}
+{% block content %}
+<div class="product_image" >
+  <img src="{{ MEDIA_URL }}{{ p.image }}" alt="{{ p.name }}"
+       width="360" height="360"/>
+</div>
+  <h1>{{ p.name }}</h1>
+  品牌: <em>{{ p.brand }}</em>
+  <br /><br />
+  单位: {{ p.sku }}
+  <br />
+  所属分类:
+  {% for c in categories %}
+    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+    {% if not forloop.last %}, {% endif %}
+  {% endfor %}
+  <br /><br />
+  {% if p.sale_price %}
+  原价: <del>$ {{ p.old_price }}</del>
+  <br />
+  活动价: $ {{ p.price }}
+  {% else %}
+  价格: $ {{ p.price }}
+  {% endif %}
+  <br /><br />
+  [添加到购物车]
+  <br /><br />
+  <div class="cb"><br /><br /></div>
+  <h3>产品描述</h3>
+  {{ p.description }}
+{% endblock %}

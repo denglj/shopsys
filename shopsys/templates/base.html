@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="Stylesheet" type="text/css" href="{% static "css/base.css" %}" />
+    <title>
+      {% block title %}
+        {% if page_title %}{{ page_title }} - {% endif %} {{ site_name }}
+      {% endblock %}
+    </title>
+    <meta name="keywords" content="{{ meta_keywords }}" />
+    <meta name="description" content="{{ meta_description }}" />
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+  </body>
+</html>
